@@ -7,95 +7,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
   <title>Sucursales</title> 
-
-
-	  <script src="https://maps.google.com/maps/api/js?key=AIzaSyAo8xAgq_ONMva5pddELI85k13fA5gXokg" 
+  <script src="https://maps.google.com/maps/api/js?key=AIzaSyAo8xAgq_ONMva5pddELI85k13fA5gXokg" 
           type="text/javascript"></script>
-
-    <script type="text/javascript">
-    var initialLocation;
-    var siberia = new google.maps.LatLng(60, 105);
-    var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
-    var browserSupportFlag =  new Boolean();
-
-    function initialize() {
-        var myOptions = {
-            zoom: 6,
-            mapTypeId: google.maps.MapTypeId.HYBRID
-        };
-        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
-        var marker;
-
-        myListener = google.maps.event.addListener(map, 'click', function(event) {
-            placeMarker(event.latLng);
-        });
-        google.maps.event.addListener(map, 'drag', function(event) {
-            placeMarker(event.latLng);
-        });
-
-        // Try W3C Geolocation (Preferred)
-        if(navigator.geolocation) {
-            browserSupportFlag = true;
-            navigator.geolocation.getCurrentPosition(function(position) {
-                initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-                map.setCenter(initialLocation);
-            }, function() {
-                handleNoGeolocation(browserSupportFlag);
-            });
-            // Try Google Gears Geolocation
-        } else if (google.gears) {
-            browserSupportFlag = true;
-            var geo = google.gears.factory.create('beta.geolocation');
-            geo.getCurrentPosition(function(position) {
-                initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
-                map.setCenter(initialLocation);
-            }, function() {
-                handleNoGeoLocation(browserSupportFlag);
-            });
-            // Browser doesn't support Geolocation
-        } else {
-            browserSupportFlag = false;
-            handleNoGeolocation(browserSupportFlag);
-        }
-
-        function handleNoGeolocation(errorFlag) {
-            if (errorFlag === true) {
-                alert("Geolocation service failed.");
-                initialLocation = newyork;
-            } else {
-                alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
-                initialLocation = siberia;
-            }
-        }
-
-        function placeMarker(location) {
-            if (marker) {
-                marker.setPosition(location);
-            } else {
-               marker = new google.maps.Marker({
-                    position: location,
-                    map: map,
-                    draggable: true
-                });
-                google.maps.event.addListener(marker, "drag", function (mEvent) {
-                    populateInputs(mEvent.latLng);
-                });
-            }
-            populateInputs(location);
-        }
-
-        function populateInputs(pos) {
-            document.getElementById("t1").value=pos.lat()
-            document.getElementById("t2").value=pos.lng();
-        }
-    }
-    </script>
-
 </head> 
-<body onload= "initialize()">
-<!-->Navbar</!-->
-<nav class="navbar navbar-default navbar-fixed-top">
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -123,141 +39,110 @@
   </div>
 </nav>
 
-<div class="container ">
-	<br>
+	<div class="container ">
+    <br>
     <div class="page-header">
       <h1>Sucursales <small>barcocinas</small></h1>
     </div>
-  	<div class="hidden-xs " id="map" style="width: 100%; height: 400px;">
-	  	<div id="map_canvas"></div>
-  	</div>
-
-	<div id="MainMenu">
-	    <div class="list-group panel">
-	        <a href="#vidrio" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Vidrio</a>
-	        <div class="collapse" id="vidrio">
-	            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-		            <div class="row">
-		            	<div class="col-md-8">
-			            	<strong>Col. Americana  </strong><br>
-				        	Teléfonos:  <br>
-				        	3827 0942 y 48 <br>
-				        	3827 0231  <br>
-				        	3825 4120 <br>
-							3826 6984 <br>
-							3826 8380 <br>
-		            	</div>
-		  				<div class="visible-xs visible-sm">
-								<button type="button" class="btn btn-danger">
-									<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
-								</button>
-							</div>
-							<div class=visible-md visible-lg">
-								<button type="button" class="btn btn-danger">
-									<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
-								</button>
-							</div>
-		            </div>
-	            </a>
-	        </div>
-
-	        <a href="#sanjose" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Los Cajetes</a>
-	        <div class="collapse" id="sanjose">
-	            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-	            	<div class="row">
-	            		<div class="col-md-8">
-		            		<strong>San José #1179</strong> <br>
-				        	Col. Los Cajetes <br>
-				        	Teléfonos: <br>
-				        	3612 0485 <br>
-				        	3687 1451 <br>
-				        	3188 4173 <br>
-	            		</div>
-	            		<div class="col-md-4 hidden-xs">
-							<div class="visible-xs visible-sm">
-								<button type="button" class="btn btn-danger">
-									<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
-								</button>
-							</div>
-						</div>
-						<div class="visible-md visible-lg">
-							<button type="button" class="btn btn-danger">
-								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
-							</button>
-						</div>
+	  <div class="hidden-xs " id="map" style="width: 100%; height: 400px;">
+	  <script type="text/javascript">
+	    var locations = [
+	      ['Col. Americana', 20.667671, -103.362853],
+	      ['Bodega', 20.589573, -103.430365, 5],
+	      ['Tableros', 20.594535, -103.423944, 3],
+	      ['López Mateos Sur', 20.624682, -103.420568, 2],
+	      ['Olimpica', 20.651564, -103.330108, 1],
+	      ['Tonalá', 20.617041, -103.276607, 6]
+	    ];
+	    var map = new google.maps.Map(document.getElementById('map'), {
+	      zoom: 11,
+	      center: new google.maps.LatLng(20.6739384,-103.3024541),
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    });
+	    var infowindow = new google.maps.InfoWindow();
+	    var marker, i;
+	    for (i = 0; i < locations.length; i++) {  
+	      marker = new google.maps.Marker({
+	        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+	        map: map
+	      });
+	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+	        return function() {
+	          infowindow.setContent(locations[i][0]);
+	          infowindow.open(map, marker);
+	        }
+	      })(marker, i));
+	    }
+	  </script>
+	  </div>
+<br>
+<div id="MainMenu">
+    <div class="list-group panel">
+        <a href="#vidrio" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Vidrio</a>
+        <div class="collapse" id="vidrio">
+            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
+	            <div class="row">
+	            	<div class="col-md-8">
+		            	<strong>Col. Americana  </strong><br>
+			        	Teléfonos:  <br>
+			        	3827 0942 y 48 <br>
+			        	3827 0231  <br>
+			        	3825 4120 <br>
+						3826 6984 <br>
+						3826 8380 <br>
 	            	</div>
-	            </a>
-	        </div>
-
-	        <a href="#maleman" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Palmira</a>
-	        <div class="collapse" id="maleman">
-	            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-		            <div class="row">
-		            	<div class="col-md-8">
-		            		<strong>Miguel Alemán #1810</strong> <br>
-				        	Col. Palmira <br>
-				        	Teléfonos:   <br>
-				        	3686 9892 <br>
-				        	3612 5041 <br>
-		            	</div>
-		            	<br>
-		            	<div class="col-md-4">
-							<div class="visible-xs visible-sm">
-								<button type="button" class="btn btn-danger">
-									<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
-								</button>
-							</div>
-							<div class="visible-md visible-lg">
-								<button type="button" class="btn btn-danger">
-									<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
-								</button>
-							</div>	            		
-		            	</div>
-		            </div>					
-	            </a>
-	        </div>
-
-	      	<a href="#laureles" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Conjunto Laureles</a>
-	        <div class="collapse" id="laureles">
-	            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-		            <div class="row">
-		            	<div class="col-md-8">	            
-			            	<strong>Laureles #177</strong> <br>
-				        	Col. Conjunto Laureles<br>
-				        	Teléfonos:   <br>
-				        	3165 7234 <br>
-				        	3165 7059 <br>
-			            </div>	
-			            <br>
-	            		<div class="visible-xs visible-sm">
+	  				<div class="visible-xs visible-sm">
 							<button type="button" class="btn btn-danger">
 								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
 							</button>
 						</div>
-						<div class="visible-md visible-lg">
+						<div class=visible-md visible-lg">
 							<button type="button" class="btn btn-danger">
 								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
 							</button>
 						</div>
 	            </div>
-					
-	            </a>
-	        </div>
-
-	      	<a href="#arboledas" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu"> Colonia Arboledas</a>
-	        <div class="collapse" id="arboledas">
-	            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-					<div class="row">
-						  <div class="col-md-8">
-						  <strong> López M. Sur #5614</strong> <br>
-				        	Col. Arboledas <br>
-				        	Teléfonos:   <br>
-				        	3632 5153 <br>
-				        	3631 6534 <br>
-				        	3631 6483 <br>
-				        	3631 5611 <br>
-						  </div>
-						  <br>
+            </a>
+        </div>
+        <a href="#sanjose" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Los Cajetes</a>
+        <div class="collapse" id="sanjose">
+            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
+            	<div class="row">
+            		<div class="col-md-8">
+	            		<strong>San José #1179</strong> <br>
+			        	Col. Los Cajetes <br>
+			        	Teléfonos: <br>
+			        	3612 0485 <br>
+			        	3687 1451 <br>
+			        	3188 4173 <br>
+            		</div>
+            		<div class="col-md-4 hidden-xs">
+						<div class="visible-xs visible-sm">
+							<button type="button" class="btn btn-danger">
+								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
+							</button>
+						</div>
+					</div>
+					<div class="visible-md visible-lg">
+						<button type="button" class="btn btn-danger">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
+						</button>
+					</div>
+            	</div>
+            </a>
+        </div>
+        <a href="#maleman" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Palmira</a>
+        <div class="collapse" id="maleman">
+            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
+	            <div class="row">
+	            	<div class="col-md-8">
+	            		<strong>Miguel Alemán #1810</strong> <br>
+			        	Col. Palmira <br>
+			        	Teléfonos:   <br>
+			        	3686 9892 <br>
+			        	3612 5041 <br>
+	            	</div>
+	            	<div class="col-md-4">
 						<div class="visible-xs visible-sm">
 							<button type="button" class="btn btn-danger">
 								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
@@ -267,22 +152,74 @@
 							<button type="button" class="btn btn-danger">
 								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
 							</button>
-						</div>
-					</div>		        					
-	            </a>
-	        </div>
-	    </div>
-	</div>
-
-	<script>
-	$('.list-group').on('click','> a', function(e) {
-	   var $this = $(this);
-	    $('.list-group').find('.active').removeClass('active');
-	    $this.addClass('active');
-	    
-	//    alert($this.attr('href') + ' is active');
-	});
-	</script>
-
+						</div>	            		
+	            	</div>
+	            </div>					
+            </a>
+        </div>
+      	<a href="#laureles" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Conjunto Laureles</a>
+        <div class="collapse" id="laureles">
+            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
+	            <div class="row">
+	            	<div class="col-md-8">	            
+		            	<strong>Laureles #177</strong> <br>
+			        	Col. Conjunto Laureles<br>
+			        	Teléfonos:   <br>
+			        	3165 7234 <br>
+			        	3165 7059 <br>
+		            </div>	
+		            <br>
+            		<div class="visible-xs visible-sm">
+						<button type="button" class="btn btn-danger">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
+						</button>
+					</div>
+					<div class="visible-md visible-lg">
+						<button type="button" class="btn btn-danger">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
+						</button>
+					</div>
+            </div>
+				
+            </a>
+        </div>
+      	<a href="#arboledas" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu"> Colonia Arboledas</a>
+        <div class="collapse" id="arboledas">
+            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
+				<div class="row">
+					  <div class="col-md-8">
+					  <strong> López M. Sur #5614</strong> <br>
+			        	Col. Arboledas <br>
+			        	Teléfonos:   <br>
+			        	3632 5153 <br>
+			        	3631 6534 <br>
+			        	3631 6483 <br>
+			        	3631 5611 <br>
+					  </div>
+					  <br>
+					<div class="visible-xs visible-sm">
+						<button type="button" class="btn btn-danger">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
+						</button>
+					</div>
+					<div class="visible-md visible-lg">
+						<button type="button" class="btn btn-danger">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
+						</button>
+					</div>
+				</div>		        					
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+$('.list-group').on('click','> a', function(e) {
+   var $this = $(this);
+    $('.list-group').find('.active').removeClass('active');
+    $this.addClass('active');
+    
+//    alert($this.attr('href') + ' is active');
+});
+</script>
 </body>
 </html>
