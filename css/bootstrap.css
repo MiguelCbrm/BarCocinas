@@ -5,7 +5,8 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+  font-family: "Helvetica Neue";
+  font-weight: 200;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
   color: red;
@@ -1084,9 +1085,10 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
+  font-family: "Helvetica Neue";
+  font-size: 17px;
+  font-weight: 200;
+    line-height: 1.42857143;
   color: #333;
   background-color: #fff;
 }
