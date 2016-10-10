@@ -38,181 +38,138 @@
     </div>
   </div>
 </nav>
-
-	<div class="container ">
-    <br>
+<br>
     <div class="page-header">
       <h1>Sucursales <small>barcocinas</small></h1>
     </div>
-	  <div class="hidden-xs " id="map" style="width: 100%; height: 400px;">
-	  <script type="text/javascript">
-	    var locations = [
-	      ['Col. Americana', 20.667671, -103.362853],
-	      ['Bodega', 20.589573, -103.430365, 5],
-	      ['Tableros', 20.594535, -103.423944, 3],
-	      ['López Mateos Sur', 20.624682, -103.420568, 2],
-	      ['Olimpica', 20.651564, -103.330108, 1],
-	      ['Tonalá', 20.617041, -103.276607, 6]
-	    ];
-	    var map = new google.maps.Map(document.getElementById('map'), {
-	      zoom: 11,
-	      center: new google.maps.LatLng(20.6739384,-103.3024541),
-	      mapTypeId: google.maps.MapTypeId.ROADMAP
-	    });
-	    var infowindow = new google.maps.InfoWindow();
-	    var marker, i;
-	    for (i = 0; i < locations.length; i++) {  
-	      marker = new google.maps.Marker({
-	        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-	        map: map
-	      });
-	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-	        return function() {
-	          infowindow.setContent(locations[i][0]);
-	          infowindow.open(map, marker);
-	        }
-	      })(marker, i));
-	    }
-	  </script>
-	  </div>
-<br>
-<div id="MainMenu">
-    <div class="list-group panel">
-          	<a href="#arboledas" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu"> Colonia Arboledas</a>
-        <div class="collapse" id="arboledas">
-            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-				<div class="row">
-					  <div class="col-md-8">
-					  <strong> López M. Sur #5614</strong> <br>
-			        	Col. Arboledas <br>
-			        	Teléfonos:   <br>
-			        	3632 5153 <br>
-			        	3631 6534 <br>
-			        	3631 6483 <br>
-			        	3631 5611 <br>
-					  </div>
-					  <br>
-					<div class="visible-xs visible-sm">
-						<button type="button" class="btn btn-danger" href="https://www.google.com.mx/maps/place/Bar+Cocinas/@20.6249784,-103.4226239,17z/data=!3m1!4b1!4m5!3m4!1s0x8428ac5b3333633b:0xb89d453a876e8f5e!8m2!3d20.6249734!4d-103.4204352?hl=en">
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
-						</button>
-					</div>
-					<div class="visible-md visible-lg">
-						<button type="button" class="btn btn-danger">
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
-						</button>
-					</div>
-				</div>		        					
-            </a>
-        </div>
+<div class = "row container">
+	  <div class="panel-group col-md-4" id="accordion">
+	    <div class="panel panel-default">
+	      <div class="panel-heading">
+	        <h4 class="panel-title">
+	          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Colonia Arboledas</a>
+	        </h4>
+	      </div>
+	      <div id="collapse1" class="panel-collapse collapse in">
+	        <div class="panel-body">
+				<strong> López M. Sur #5614</strong> <br>
+				Col. Arboledas <br>
+				Teléfonos:   <br>
+				3632 5153 <br>
+				3631 6534 <br>
+				3631 6483 <br>
+				3631 5611 <br>
+	        </div>
+	      </div>
+	   	</div>
 
-        <a href="#vidrio" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu">Vidrio</a>
-        <div class="collapse" id="vidrio">
-            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-	            <div class="row">
-	            	<div class="col-md-8">
-		            	<strong>Col. Americana  </strong><br>
-			        	Teléfonos:  <br>
-			        	3827 0942 y 48 <br>
-			        	3827 0231  <br>
-			        	3825 4120 <br>
-						3826 6984 <br>
-						3826 8380 <br>
-	            	</div>
-	  				<div class="visible-xs visible-sm">
-							<button type="button" class="btn btn-danger">
-								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
-							</button>
-						</div>
-						<div class=visible-md visible-lg">
-							<button type="button" class="btn btn-danger">
-								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
-							</button>
-						</div>
-	            </div>
-            </a>
-        </div>
-        <a href="#sanjose" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Los Cajetes</a>
-        <div class="collapse" id="sanjose">
-            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-            	<div class="row">
-            		<div class="col-md-8">
-	            		<strong>San José #1179</strong> <br>
-			        	Col. Los Cajetes <br>
-			        	Teléfonos: <br>
-			        	3612 0485 <br>
-			        	3687 1451 <br>
-			        	3188 4173 <br>
-            		</div>
-            		<div class="col-md-4 hidden-xs">
-						<div class="visible-xs visible-sm">
-							<button type="button" class="btn btn-danger">
-								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
-							</button>
-						</div>
-					</div>
-					<div class="visible-md visible-lg">
-						<button type="button" class="btn btn-danger">
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
-						</button>
-					</div>
-            	</div>
-            </a>
-        </div>
-        <a href="#maleman" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Palmira</a>
-        <div class="collapse" id="maleman">
-            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-	            <div class="row">
-	            	<div class="col-md-8">
-	            		<strong>Miguel Alemán #1810</strong> <br>
-			        	Col. Palmira <br>
-			        	Teléfonos:   <br>
-			        	3686 9892 <br>
-			        	3612 5041 <br>
-	            	</div>
-	            	<div class="col-md-4">
-						<div class="visible-xs visible-sm">
-							<button type="button" class="btn btn-danger">
-								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
-							</button>
-						</div>
-						<div class="visible-md visible-lg">
-							<button type="button" class="btn btn-danger">
-								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
-							</button>
-						</div>	            		
-	            	</div>
-	            </div>					
-            </a>
-        </div>
-      	<a href="#laureles" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Conjunto Laureles</a>
-        <div class="collapse" id="laureles">
-            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-	            <div class="row">
-	            	<div class="col-md-8">	            
-		            	<strong>Laureles #177</strong> <br>
-			        	Col. Conjunto Laureles<br>
-			        	Teléfonos:   <br>
-			        	3165 7234 <br>
-			        	3165 7059 <br>
-		            </div>	
-		            <br>
-            		<div class="visible-xs visible-sm">
-						<button type="button" class="btn btn-danger">
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
-						</button>
-					</div>
-					<div class="visible-md visible-lg">
-						<button type="button" class="btn btn-danger">
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
-						</button>
-					</div>
-            </div>
-				
-            </a>
-        </div>
-    </div>
-</div>
+	    <div class="panel panel-default">
+	      <div class="panel-heading">
+	        <h4 class="panel-title">
+	          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Colonia Americana</a>
+	        </h4>
+	      </div>
+	      <div id="collapse2" class="panel-collapse collapse">
+	        <div class="panel-body">
+	       	 	<strong>Col. Americana  </strong><br>
+				Teléfonos:  <br>
+				3827 0942 y 48 <br>
+				3827 0231  <br>
+				3825 4120 <br>
+				3826 6984 <br>
+				3826 8380 <br>
+	        </div>
+	      </div>
+	    </div>
+
+	    <div class="panel panel-default">
+	      <div class="panel-heading">
+	        <h4 class="panel-title">
+	          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Los Cajetes</a>
+	        </h4>
+	      </div>
+	      <div id="collapse3" class="panel-collapse collapse">
+	        <div class="panel-body">
+				<strong>San José #1179</strong> <br>
+				Col. Los Cajetes <br>
+				Teléfonos: <br>
+				3612 0485 <br>
+				3687 1451 <br>
+				3188 4173 <br>
+	        </div>
+	      </div>
+	    </div>
+
+	    <div class="panel panel-default">
+	      <div class="panel-heading">
+	        <h4 class="panel-title">
+	          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Colonia Palmira</a>
+	        </h4>
+	      </div>
+	      <div id="collapse4" class="panel-collapse collapse">
+	        <div class="panel-body">
+				<strong>Miguel Alemán #1810</strong> <br>
+				Col. Palmira <br>
+				Teléfonos:   <br>
+				3686 9892 <br>
+				3612 5041 <br>
+	        </div>
+	      </div>
+	    </div>
+
+	    <div class="panel panel-default">
+	      <div class="panel-heading">
+	        <h4 class="panel-title">
+	          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Colonia Conjunto Laureles</a>
+	        </h4>
+	      </div>
+	      <div id="collapse5" class="panel-collapse collapse">
+	        <div class="panel-body">
+				<strong>Laureles #177</strong> <br>
+				Col. Conjunto Laureles<br>
+				Teléfonos:   <br>
+				3165 7234 <br>
+				3165 7059 <br>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+
+	  <div class="col-md-8 container">
+		  <div class="hidden-xs container " id="map" style="width: 100%; height: 400px;">
+		  <script type="text/javascript">
+		    var locations = [
+		      ['Col. Americana', 20.667671, -103.362853],
+		      ['Bodega', 20.589573, -103.430365, 5],
+		      ['Tableros', 20.594535, -103.423944, 3],
+		      ['López Mateos Sur', 20.624682, -103.420568, 2],
+		      ['Olimpica', 20.651564, -103.330108, 1],
+		      ['Tonalá', 20.617041, -103.276607, 6]
+		    ];
+		    var map = new google.maps.Map(document.getElementById('map'), {
+		      zoom: 11,
+		      center: new google.maps.LatLng(20.6739384,-103.3024541),
+		      mapTypeId: google.maps.MapTypeId.ROADMAP
+		    });
+		    var infowindow = new google.maps.InfoWindow();
+		    var marker, i;
+		    for (i = 0; i < locations.length; i++) {  
+		      marker = new google.maps.Marker({
+		        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+		        map: map
+		      });
+		      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+		        return function() {
+		          infowindow.setContent(locations[i][0]);
+		          infowindow.open(map, marker);
+		        }
+		      })(marker, i));
+		    }
+		  </script>
+		  </div>
+	</div>
+
+
 <script>
 $('.list-group').on('click','> a', function(e) {
    var $this = $(this);
