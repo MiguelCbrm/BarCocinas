@@ -78,7 +78,35 @@
 <br>
 <div id="MainMenu">
     <div class="list-group panel">
-        <a href="#vidrio" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu">Vidrio</a>
+          	<a href="#arboledas" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu"> Colonia Arboledas</a>
+        <div class="collapse" id="arboledas">
+            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
+				<div class="row">
+					  <div class="col-md-8">
+					  <strong> López M. Sur #5614</strong> <br>
+			        	Col. Arboledas <br>
+			        	Teléfonos:   <br>
+			        	3632 5153 <br>
+			        	3631 6534 <br>
+			        	3631 6483 <br>
+			        	3631 5611 <br>
+					  </div>
+					  <br>
+					<div class="visible-xs visible-sm">
+						<button type="button" class="btn btn-danger" href="https://www.google.com.mx/maps/place/Bar+Cocinas/@20.6249784,-103.4226239,17z/data=!3m1!4b1!4m5!3m4!1s0x8428ac5b3333633b:0xb89d453a876e8f5e!8m2!3d20.6249734!4d-103.4204352?hl=en">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
+						</button>
+					</div>
+					<div class="visible-md visible-lg">
+						<button type="button" class="btn btn-danger">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
+						</button>
+					</div>
+				</div>		        					
+            </a>
+        </div>
+
+        <a href="#vidrio" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu">Vidrio</a>
         <div class="collapse" id="vidrio">
             <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
 	            <div class="row">
@@ -183,33 +211,6 @@
 				
             </a>
         </div>
-      	<a href="#arboledas" class="list-group-item " data-toggle="collapse" data-parent="#MainMenu"> Colonia Arboledas</a>
-        <div class="collapse" id="arboledas">
-            <a href="" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-				<div class="row">
-					  <div class="col-md-8">
-					  <strong> López M. Sur #5614</strong> <br>
-			        	Col. Arboledas <br>
-			        	Teléfonos:   <br>
-			        	3632 5153 <br>
-			        	3631 6534 <br>
-			        	3631 6483 <br>
-			        	3631 5611 <br>
-					  </div>
-					  <br>
-					<div class="visible-xs visible-sm">
-						<button type="button" class="btn btn-danger">
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver mapa
-						</button>
-					</div>
-					<div class="visible-md visible-lg">
-						<button type="button" class="btn btn-danger">
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Ver en mapa
-						</button>
-					</div>
-				</div>		        					
-            </a>
-        </div>
     </div>
 </div>
 <script>
@@ -217,8 +218,6 @@ $('.list-group').on('click','> a', function(e) {
    var $this = $(this);
     $('.list-group').find('.active').removeClass('active');
     $this.addClass('active');
-    
-//    alert($this.attr('href') + ' is active');
 });
 </script>
 </body>
