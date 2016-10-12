@@ -14,6 +14,7 @@ html {
 body {
   margin: 0;
   color: red;
+  height: 100%;
 }
 article,
 aside,
@@ -6762,5 +6763,30 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+
+/* Added by JP*/
+
+
+/*Parallax section*/
+#section-1 {
+    z-index: 1;
+    color: #fff;
+    height: 100vh;
+}
+/*Parallax background*/
+#section-1 .parallax-layer-back {
+    background: url("images/inicio/parallax1.jpg")no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+/*Section with dummy content*/
+#section-2 {
+    z-index: 2;
+    position: relative;
+    background: #fff;
+    width: 100%;
 }
 /*# sourceMappingURL=bootstrap.css.map */
